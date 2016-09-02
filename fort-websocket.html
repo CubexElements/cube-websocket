@@ -150,10 +150,17 @@ Example:
                     if(undefined == this._socket.socket || this._socket.socket.readyState == WebSocket.CLOSED)
                     {
                       console.info('WebSocket connecting to ' + this.url);
-                      this._socket.socket = new WebSocket(this.url, this.protocol);
-                      this._socket.socket.addEventListener('open', this._onOpen.bind(this));
-                      this._socket.socket.addEventListener('error', this._onError.bind(this));
-                      this._socket.socket.addEventListener('message', this._onMessage.bind(this));
+                      try
+                      {
+                        this._socket.socket = new WebSocket(this.url, this.protocol);
+                        this._socket.socket.addEventListener('open', this._onOpen.bind(this));
+                        this._socket.socket.addEventListener('error', this._onError.bind(this));
+                        this._socket.socket.addEventListener('message', this._onMessage.bind(this));
+                      }
+                      catch(e)
+                      {
+                        console.error(e);
+                      }
                     }
                   }
                 },
