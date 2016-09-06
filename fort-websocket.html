@@ -149,7 +149,6 @@ Example:
                     }
                     if(undefined == this._socket.socket || this._socket.socket.readyState == WebSocket.CLOSED)
                     {
-                      console.info('WebSocket connecting to ' + this.url);
                       try
                       {
                         this._socket.socket = new WebSocket(this.url, this.protocol);
