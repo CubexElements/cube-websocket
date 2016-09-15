@@ -12,7 +12,7 @@ Example:
 -->
 
 <dom-module id="fort-websocket"
-            attributes="url protocol app auto subscribe-payload on-subscribe on-close on-message on-error">
+            attributes="vendor app url protocol auto subscribe-payload on-subscribe on-close on-message on-error">
   <script>
     var sockets = {};
     (function ()
@@ -21,6 +21,9 @@ Example:
         {
           is:           'fort-websocket',
           properties:   {
+            vendor:           {
+              type: String
+            },
             app:              {
               type: String
             },
@@ -44,7 +47,7 @@ Example:
                           // http request to subscribe to this app
                           var
                             self = this,
-                            subscribeUrl = '//apps.fortifi.me:8888/' + this.app + '/_socket/subscribe/' + this._socket.sessionId,
+                            subscribeUrl = '//apps.fortifi.me:8888/' + this.vendor + '/' + this.app + '/_socket/subscribe/' + this._socket.sessionId,
                             xmlHttp = new XMLHttpRequest();
 
                           xmlHttp.onreadystatechange = function ()
