@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../fort-behavior/fort-service-behavior.html">
 
 <!--
 An element providing a solution to no problem in particular.
@@ -20,6 +21,7 @@ Example:
       Polymer(
         {
           is:           'fort-websocket',
+          behaviors:    [FortServiceBehavior],
           properties:   {
             vendor:           {
               type: String
@@ -28,8 +30,9 @@ Example:
               type: String
             },
             url:              {
-              type:  String,
-              value: 'wss://conduit.fortifi.io'
+              type:               String,
+              value:              function () {return 'wss://' + this.getServiceHost('conduit');},
+              reflectToAttribute: true
             },
             protocol:         {
               type: String
@@ -47,7 +50,8 @@ Example:
                           // http request to subscribe to this app
                           var
                             self = this,
-                            subscribeUrl = '//apps.fortifi.me:8888/' + this.vendor + '/' + this.app + '/_socket/subscribe/' + this._socket.sessionId,
+                            subscribeUrl = '//' + this.getServiceHost('apps', 8888)
+                              + '/' + this.vendor + '/' + this.app + '/_socket/subscribe/' + this._socket.sessionId,
                             xmlHttp = new XMLHttpRequest();
 
                           xmlHttp.onreadystatechange = function ()
@@ -131,7 +135,12 @@ Example:
                         },
           ready:        function ()
                         {
-                          this.auto && this.open();
+                          this.async(
+                            function ()
+                            {
+                              this.auto && this.open();
+                            }
+                          );
                         },
 
           open: function ()
