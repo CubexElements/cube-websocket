@@ -71,6 +71,7 @@ Example:
                               }
                             }
                           };
+                          xmlHttp.withCredentials = true;
                           xmlHttp.open("POST", subscribeUrl, true);
                           xmlHttp.send(
                             typeof(this.subscribePayload) == 'string' ? this.subscribePayload
