@@ -50,7 +50,7 @@ Example:
                           // http request to subscribe to this app
                           var
                             self = this,
-                            subscribeUrl = '//' + this.getServiceHost('apps', 8888)
+                            subscribeUrl = '//' + this.getServiceHost('apps')
                               + '/' + this.vendor + '/' + this.app + '/_socket/subscribe/' + this._socket.sessionId,
                             xmlHttp = new XMLHttpRequest();
 
