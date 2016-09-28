@@ -125,7 +125,7 @@ Example:
                               this._onSubscribe();
                             }
                           }
-                          else if(message.app == this.app)
+                          else if(message.app == this.vendor + '/' + this.app)
                           {
                             this.fire('message', message);
                           }
