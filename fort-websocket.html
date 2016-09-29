@@ -45,7 +45,7 @@ Example:
               value: false
             }
           },
-          _onSubscribe: function ()
+          _doSubscribe: function ()
                         {
                           // http request to subscribe to this app
                           var
@@ -122,7 +122,7 @@ Example:
                             {
                               this._socket.sessionId = message.payload;
                               // socket is only open when we have received the sessionId
-                              this._onSubscribe();
+                              this._doSubscribe();
                             }
                           }
                           else if(message.app == this.vendor + '/' + this.app)
@@ -165,15 +165,15 @@ Example:
                       try
                       {
                         this._socket.socket = new WebSocket(this.url, this.protocol);
-                        this._socket.socket.addEventListener('open', this._onOpen.bind(this));
-                        this._socket.socket.addEventListener('error', this._onError.bind(this));
-                        this._socket.socket.addEventListener('message', this._onMessage.bind(this));
                       }
                       catch(e)
                       {
                         console.error(e);
                       }
                     }
+                    this._socket.socket.addEventListener('open', this._onOpen.bind(this));
+                    this._socket.socket.addEventListener('error', this._onError.bind(this));
+                    this._socket.socket.addEventListener('message', this._onMessage.bind(this));
                   }
                 },
           send: function (message)
