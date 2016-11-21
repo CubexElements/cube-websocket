@@ -15,9 +15,9 @@ Example:
 <dom-module id="fort-websocket"
             attributes="vendor app url protocol auto subscribe-payload on-subscribe on-close on-message on-error">
   <script>
-    var sockets = {};
     (function ()
     {
+      var sockets = {};
       Polymer(
         {
           is:           'fort-websocket',
