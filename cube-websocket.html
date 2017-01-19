@@ -1,18 +1,18 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../fort-behavior/fort-service-behavior.html">
+<link rel="import" href="../cube-behavior/cube-service-behavior.html">
 
 <!--
 An element providing a solution to no problem in particular.
 
 Example:
 
-    <fort-websocket auto on-message="{{_doSomething}}"></fort-websocket>
+    <cube-websocket auto on-message="{{_doSomething}}"></cube-websocket>
 
 @demo demo/index.html
 @hero hero.svg
 -->
 
-<dom-module id="fort-websocket"
+<dom-module id="cube-websocket"
             attributes="vendor app url protocol auto subscribe-payload on-subscribe on-close on-message on-error">
   <script>
     (function ()
@@ -20,8 +20,8 @@ Example:
       var sockets = {};
       Polymer(
         {
-          is:           'fort-websocket',
-          behaviors:    [Polymer.FortServiceBehavior],
+          is:           'cube-websocket',
+          behaviors:    [Polymer.CubeServiceBehavior],
           properties:   {
             vendor:           {
               type: String

@@ -1,5 +1,5 @@
 {
-  "name": "fort-websocket",
+  "name": "cube-websocket",
   "version": "1.0.0",
   "authors": [
     "Anonymous <anonymous@example.com>"
@@ -11,9 +11,9 @@
     "seed"
   ],
   "private": true,
-  "main": "fort-websocket.html",
+  "main": "cube-websocket.html",
   "license": "MIT",
-  "homepage": "https://github.com/FortifiElements/fort-websocket/",
+  "homepage": "https://github.com/CubexElements/cube-websocket/",
   "ignore": [
     "/.*",
     "/test/",
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.6.0",
-    "fort-behavior": "ssh://git@github.com/FortifiElements/fort-behavior.git"
+    "cube-behavior": "ssh://git@github.com/CubexElements/cube-behavior.git"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
