@@ -14,6 +14,10 @@ Example:
 
 <dom-module id="cube-websocket"
             attributes="vendor app url protocol auto subscribe-payload on-subscribe on-close on-message on-error">
+  <template>
+    <app-location route="{{route}}"></app-location>
+    <app-route id="projectRoute" route="[[route]]" pattern="/:project" data="{{projectRouteData}}"></app-route>
+  </template>
   <script>
     (function ()
     {
@@ -73,6 +77,10 @@ Example:
                           };
                           xmlHttp.withCredentials = true;
                           xmlHttp.open("POST", subscribeUrl, true);
+                          if(this.projectRouteData.project)
+                          {
+                            xmlHttp.setRequestHeader('x-cube-project', this.projectRouteData.project);
+                          }
                           xmlHttp.send(
                             typeof(this.subscribePayload) == 'string' ? this.subscribePayload
                               : JSON.stringify(this.subscribePayload)
