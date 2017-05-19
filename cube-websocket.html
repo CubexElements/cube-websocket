@@ -177,6 +177,9 @@ Example:
                     this._socket.socket.addEventListener('open', this._onOpen.bind(this));
                     this._socket.socket.addEventListener('error', this._onError.bind(this));
                     this._socket.socket.addEventListener('message', this._onMessage.bind(this));
+                    if (this._socket.sessionId) {
+                      this._doSubscribe();
+                    }
                   }
                 },
           send: function (message)
